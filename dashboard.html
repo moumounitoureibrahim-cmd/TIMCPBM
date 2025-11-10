@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tableau de bord – TIMCPBM 💳🌍</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* styles additionnels pour le dashboard */
+    .dashboard-header { padding:20px; background:linear-gradient(90deg,#003366,#005f99); color:white; }
+    .balance { font-size:1.8em; margin:10px 0; color:#ffdd57; }
+    .controls { margin:20px 0; }
+    .controls input { padding:8px; width:150px; margin-right:8px; border-radius:6px; border:1px solid #ccc; }
+    .transactions { margin-top:30px; display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+    .tx { background:white; color:#003366; padding:12px; border-radius:10px; width:260px; box-shadow:0 6px 12px rgba(0,0,0,0.12); }
+    .tx.positive { border-left:6px solid #0a9d5a; }
+    .tx.negative { border-left:6px solid #e65555; }
+    .small { font-size:0.85em; color:#666; }
+    .owner-commission { margin-top:12px; font-size:0.95em; color:#ffdca3; }
+  </style>
+</head>
+<body>
+  <header class="dashboard-header">
+    <h2>Tableau de bord TIMCPBM 💳🌍</h2>
+    <div class="balance" id="balanceText">Solde : 0 FCFA</div>
+    <div class="owner-commission" id="commissionText">Ta commission (2%) : 0 FCFA</div>
+  </header>
+
+  <main style="padding:20px; text-align:center;">
+    <div class="controls">
+      <input id="amountInput" type="number" placeholder="Montant (FCFA)" />
+      <button id="depBtn">Simuler dépôt</button>
+      <button id="withBtn">Simuler retrait</button>
+      <button id="clearBtn" style="margin-left:12px;background:#888;color:white;">Effacer historique</button>
+    </div>
+
+    <section>
+      <h3>Transactions récentes</h3>
+      <div class="transactions" id="txList">
+        <!-- transactions seront injectées ici -->
+      </div>
+    </section>
+  </main>
+
+  <footer style="padding:12px; text-align:center; background:#001f33; color:#ccc;">
+    ©️ 2025 TIMCPBM – Version 1.0
+  </footer>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

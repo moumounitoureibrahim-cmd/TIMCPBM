@@ -1,0 +1,32 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+function App() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/utilisateurs")
+      .then(response => {
+        setUsers(response.data);
+      })
+      .catch(error => {
+        console.error("Erreur de connexion :", error);
+      });
+  }, []);
+
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-800">
+      <h1 className="text-3xl font-bold mb-6">👋 Bienvenue sur TIMCPBM</h1>
+      <h2 className="text-xl mb-4">Liste des utilisateurs :</h2>
+      <ul className="bg-white shadow-md rounded-lg p-4">
+        {users.map(user => (
+          <li key={user._id} className="border-b last:border-none py-2">
+            <strong>{user.nom}</strong> — {user.role}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;

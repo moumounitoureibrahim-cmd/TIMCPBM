@@ -1,0 +1,24 @@
+// Importation des modules nécessaires
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+// Autoriser les connexions entre le frontend et le backend
+app.use(cors());
+app.use(express.json());
+
+// Route principale (page d'accueil API)
+app.get('/', (req, res) => {
+  res.send('Bienvenue sur le serveur TIMCPBM 🌍💳 - Coopération bancaire mondiale sécurisée');
+});
+
+// Exemple d’une route pour tester la connexion
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Connexion réussie avec le backend ✅' });
+});
+
+// Lancement du serveur
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`✅ Serveur TIMCPBM en ligne sur http://localhost:${PORT}`);
+});

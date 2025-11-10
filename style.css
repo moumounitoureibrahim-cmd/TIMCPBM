@@ -1,0 +1,193 @@
+/* 🌍 TIMCPBM - Style Global */
+
+/* ----- Structure générale ----- */
+body {
+  background-color: #0a0f1c;
+  color: #ffffff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ----- En-tête (header) ----- */
+header {
+  background-color: #121826;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #00bcd4;
+}
+
+header h1 {
+  color: #00bcd4;
+  font-size: 26px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* ----- Conteneur principal ----- */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #161b2e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
+}
+
+/* ----- Formulaires (inscription / login) ----- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #1e2438;
+  color: white;
+}
+
+button {
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #0097a7;
+}
+
+/* ----- Tableau de bord ----- */
+.dashboard {
+  text-align: center;
+}
+
+.balance {
+  font-size: 24px;
+  color: #4caf50;
+  margin: 20px 0;
+}
+
+.transactions {
+  background-color: #1e2438;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.transactions h3 {
+  color: #00bcd4;
+}
+
+.transactions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.transactions li {
+  padding: 10px;
+  border-bottom: 1px solid #2a314d;
+}
+
+/* ----- Pied de page ----- */
+footer {
+  text-align: center;
+  padding: 15px;
+  color: #999;
+  font-size: 14px;
+  border-top: 1px solid #1e2438;
+  margin-top: 30px;
+}/* 🌟 Animations et effets visuels TIMCPBM */
+
+/* Animation d'apparition des pages */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main, form, .dashboard, .transactions {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Effet lumineux sur les boutons */
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: all 0.6s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+/* Effet de survol sur les liens */
+a {
+  color: #00bcd4;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #4caf50;
+  text-shadow: 0 0 10px #00bcd4;
+}
+
+/* Animation du solde */
+.balance {
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    color: #4caf50;
+  }
+  to {
+    transform: scale(1.05);
+    color: #00e676;
+  }
+}
+
+/* Animation de chargement */
+.loader {
+  border: 4px solid #1e2438;
+  border-top: 4px solid #00bcd4;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
